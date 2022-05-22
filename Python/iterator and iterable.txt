@@ -1,0 +1,3 @@
+varibale can start _(underscore)
+
+_var = 3
