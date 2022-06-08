@@ -1,0 +1,5 @@
+Names that beginand end with two underscores (such as __lt__) should not be used
+Names that begin with one or two leadingunderscores (and that don’t end with two underscores) are treated specially in some contexts
+Python defines various special methods and variables that use such names
+
+_var1 = 3 ---> is valid

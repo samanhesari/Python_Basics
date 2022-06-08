@@ -1,0 +1,62 @@
+the main point is that in decoration a function is sent as argumen and some 
+operation is carried on it
+----------------------------
+1- decorator is a callable that takes another function as an argument(decorated function)
+2-decorator may perform some pre processing with the decorated function
+-decorator return this function or replace with another function
+
+
+def target() ----> decorated functin
+	print('print something')
+
+target = decorator(target) ---->decorator
+
+---these two are the same
+
+@decorator ----> it is the decorator
+def target() ----> decorated function
+	print('print something')
+-----------------------------------------------------
+
+example 1 changin a finction ----> decorator usually replace the function with another function
+
+def dec(func):
+    def innerfunction():
+        print("this is the inner function")
+    return innerfunction
+
+@dec
+def target():
+    #print("this the outer function")
+    return 5
+target()
+-------------------------------------------------------
+decorator run immidetly after decorated dunction is define
+registry = []  # <1>
+
+def register(func):  # <2>
+    print(f'running register({func})')  # <3>
+    registry.append(func)  # <4>
+    return func  # <5>
+
+@register  # <6>
+def f1():
+    print('running f1()')
+
+@register
+def f2():
+    print('running f2()')
+
+def f3():  # <7>
+    print('running f3()')
+
+def main():  # <8>
+    print('running main()')
+    print('registry ->', registry)
+    f1()
+    f2()
+    f3()
+
+if __name__ == '__main__':
+    main()  # <9>
+------------------------------------
